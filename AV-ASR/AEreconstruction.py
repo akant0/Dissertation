@@ -5,18 +5,16 @@ os.environ["CUDA_VISIBLE_DEVICES"]="0"
 from tensorflow.python.client import device_lib
 print(device_lib.list_local_devices())
 import keras
+from keras.datasets import mnist
+from keras.models import Model, load_model
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 print(matplotlib.get_backend())
 import cv2
-import os
 from scipy.misc import imresize
 from sklearn.preprocessing import StandardScaler
-from keras.datasets import mnist
-from keras.models import Model
 import pickle
-from keras.models import load_model
 
 loc='all/'
 name='all'
