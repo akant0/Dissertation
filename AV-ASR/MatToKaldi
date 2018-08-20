@@ -1,0 +1,39 @@
+# convert Matlab feature matrices to Kaldi format, using kaldi_io
+import os
+import scipy.io as sio
+import kaldi_io
+
+# train vs dev vs test features
+mode='train'
+featpath='/padded_remSLT/'+mode+'/'
+mats={}
+for f in os.listdir(featpath):
+    name = f
+    ID=name[:-4]
+    mat=featpath+name
+    array=scipy.io.loadmat(mat)
+    mats[ID]=array[ID]
+# How to split the data (i.e. how many Kaldi matrices)
+n=6
+ark_file='dct/'+mode+'.'+str(n)+'.ark'
+Len=len(mats.keys())
+ma = sorted(mats.items())
+def chunks(l, n):
+    for i in range(0, len(l), n):
+        yield l[i:i+n]
+if Len>(Len/n):
+    num=int(Len/n)+1
+else:
+    num=int(Len/n)
+new=list(chunks(ma, num))
+# split mats into gorups of 6, save ark, then run code at bottom to copy feats to Kaldi format
+c=1 # first matrix number
+for i in new: # for each split of 6
+    ark_file='dct/'+mode+'.'+str(c)+'.ark'
+    with open(ark_file,'ab') as f:
+        for key,mat in i: #sorted(mats.items()):
+            kaldi_io.write_mat(f, mat, key=key)
+    c+=1
+# print what to paste in command line
+for i in range(1,7):
+  print('copy-feats ark:./'+mode+'.'+str(i)+'.ark ark,scp:/kaldi/egs/s2/data/data_uxtd_prompts_DCT/'+mode+'/data/DCT.'+str(i)+'.ark,/kaldi/egs/s2/data/data_uxtd_prompts_DCT/'+mode+'/data/DCT.'+str(i)+'.scp')
