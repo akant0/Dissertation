@@ -1,5 +1,5 @@
 #11 November 2017
-# Simple concatenative speech synthesizer. Requires a folder "monophones" with wav file examples (not uploaded, as belong to the University of Edinburgh)
+# Requires a folder "monophones" with wav files for each monophone (not uploaded, as it belongs to the University of Edinburgh)
 # Example1: -p "HELLO. i was born {22/01} with {3.14} or, 344 cats"
 # Example 2: -p "A rose by any other name would smell as sweet"
 # Features: allows for volume control
