@@ -8,14 +8,11 @@ import keras
 import matplotlib.pyplot as plt
 import cv2
 from scipy.misc import imresize
-from keras.models import Sequential
-from keras.layers import Dense, Dropout, Flatten, Input, Dense, Input, Dense, Conv2D, MaxPooling2D, UpSampling2D
+from keras.models import Sequential, Model
+from keras.layers import Dropout, Flatten, Input, Dense, Conv2D, MaxPooling2D, UpSampling2D, Activation
 from sklearn.preprocessing import StandardScaler
-import pickle
-from keras.models import Model
-from keras.utils import np_utils
 from keras.optimizers import Adam
-import numpy as np
+import pickle
 
 # Convolutional autoencoder trained on ultrasound images, used for image feature extraction.
 
