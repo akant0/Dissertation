@@ -9,9 +9,6 @@ from tensorflow.python.client import device_lib
 print(device_lib.list_local_devices())
 import numpy as np
 from sklearn.preprocessing import StandardScaler
-import keras
-from keras.models import Sequential
-from keras.layers import Dense, Dropout, Activation, Flatten, Conv2D, MaxPooling2D
 import sklearn.metrics as metrics
 
 # Convolutional neural network for phone classification of ultrasound images (midsaggital view of child's mouth).
