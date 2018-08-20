@@ -21,7 +21,7 @@ EXP_DIR=/exp
 #1. Make fmllr features for audio, using alignment from audio-only
 # triphone training, tri3b
 
-# UXTD or UPX = typical speech, UXSSD = disordered speech
+# UXTD = typical speech, UXSSD or UPX  = disordered speech
 # nnet data: audio UXTD+UPX datasets combined
 NNET_DATA_DIR=${EXP_DIR}/tri4_nnet/nnet_data
 gmm_dir=${EXP_DIR}/tri3b
