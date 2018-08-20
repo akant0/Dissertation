@@ -53,11 +53,7 @@ data/train/upx_uxtd_p_AE_cv \
 data/train/upx_uxtd_cv_FMLLR_AE \
 expREDUCEDaudUPXUXTD/tri4_nnet/nnet_data/AE-late \
 AE3
-# NOW appended data for training at:
-# data/train/upx_uxtd_AE_train_FMLLR_ET
-# dev data:
-# data/train/upx_uxtd_AE_cv_FMLLR_ET
-# 3. compute CMVN for concatedated features
+# 3. compute CMVN for concatenated features
 steps/compute_cmvn_stats.sh data/train/upx_uxtd_train_FMLLR_AE
 steps/compute_cmvn_stats.sh data/train/upx_uxtd_cv_FMLLR_AE
 # 4. Train the DNN optimizing per-frame cross-entropy.
@@ -73,21 +69,17 @@ NNET_TRAIN_DIR=${EXP_DIR}/tri4_nnet/nnet-AE10k
        ${NNET_DATA_DIR}/tri3b_ali/train ${NNET_DATA_DIR}/tri3b_ali/cv \
        ${NNET_TRAIN_DIR}
 # the DNN is at: exp/tri4_nnet/nnet-AE10k
-  #Now, UXSSD audio and visual DCT features are combined
-  #So can use the dct dnn to align this data
-NNET_TRAIN_DIR=${EXP_DIR}/tri4_nnet/nnet-AE10k
-gmm_dir=${EXP_DIR}/tri3b
 # Next, must re-align typical and disordered speech with this DNN,
 # and evaluate the alignment.
 # Shown below is just for disordered speech.
-# 5. make fMLLR features for disordered speech
+# 5. make fMLLR features for disordered speech audio
 steps/nnet/make_fmllr_feats.sh --cmd "$train_cmd" \
       --transform-dir ${gmm_dir}_ali/uxssd/${subset} \
       ${NNET_DATA_DIR}/fmllr/uxssd/${subset} ${uxssd_data}/${subset} ${gmm_dir} \
       ${NNET_DATA_DIR}/fmllr/uxssd/${subset}/log ${NNET_DATA_DIR}/fmllr/uxssd/${subset}/data || exit 1
 # 6. combine audio-visual disordered features: fMLLR + AE10k
       for subset in BL Maint Mid Post Therapy; do
-        ./steps/append_feats.sh ${EXP_DIR}/tri4_nnet/nnet_data_red/fmllr/uxssd/${subset} \
+        ./steps/append_feats.sh ${EXP_DIR}/tri4_nnet/nnet_data/fmllr/uxssd/${subset} \
         data/data_uxssd_ae10k/${subset} \
         data/uxssd_AV_fmllr_ae10k/${subset} exp/uxssd-av-ae10k ae
             done
