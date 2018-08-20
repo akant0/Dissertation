@@ -11,6 +11,7 @@ Phone target labels can be clustered by place of articulation.
 
 3. "AEreconstruction.py" saves a sample image reconstructed by the autoencoder, and the original to compare. 
 
+4. "run_DNN_AV-ASR.sh" is a sample of the Kaldi AV-ASR feature fusion at the DNN-level. 
 
 Folder "Synthesis":
 
