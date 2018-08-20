@@ -27,7 +27,7 @@ autoencoder=load_model(loc+'autoencoder-'+name+'.h5')
 dev_x=[]
 
 # Pick which image to reconstruct
-img = '/media/alexandra/Seagate Game Drive/US-IMAGES-COMPLETE/UXTD/01M/01M-001B-1.png'
+img = '/US-IMAGES-COMPLETE/UXTD/01M/01M-001B-1.png'
 img = cv2.imread(img,cv2.IMREAD_GRAYSCALE)
 img=cv2.resize(img, (64,64))
 
