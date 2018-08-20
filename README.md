@@ -22,3 +22,4 @@ Requires a folder "monophones" with wav files for each monophone (not uploaded, 
 2. Example1: -p "HELLO. i was born {22/01} with {3.14} or, 344 cats"
 3. Example2: -p "A rose by any other name would smell as sweet"
 
+** Still to upload: Festival speech synthesis projects **
