@@ -5,6 +5,8 @@ Ultrasound database not available, as it is owned by the University of Edinburgh
 It is a convolutional neural net for image classification. 
 Phone target labels can be clustered by place of articulation.
 
+In "AV-ASR" folder:
+
 2. "autoencoder.py" is a convolutional autoencoder created to extract a 128 dimensional feature vector for the ultrasound images. Experiments were run on training different data quantities and epoch numbers, and using those features in the Kaldi AV-ASR system.
 
 3. "AEreconstruction.py" saves a sample image reconstructed by the autoencoder, and the original to compare. 
