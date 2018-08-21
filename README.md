@@ -1,5 +1,3 @@
-Folder "AV-ASR":
-
 Sample of code for my dissertation on ultrasound images in audio-visual automatic speech recognition for children with speech disorders.
 Ultrasound database not available, as it is owned by the University of Edinburgh.
 
@@ -15,11 +13,3 @@ Phone target labels can be clustered by place of articulation.
 
 5. "run_DNN_AV-ASR.sh" is a sample of the Kaldi AV-ASR feature fusion at the DNN-level. 
 
-Folder "Synthesis":
-
-1. "synth.py" is a simple concatenative speech synthesizer. 
-Requires a folder "monophones" with wav files for each monophone (not uploaded, as it belongs to the University of Edinburgh)
-2. Example1: -p "HELLO. i was born {22/01} with {3.14} or, 344 cats"
-3. Example2: -p "A rose by any other name would smell as sweet"
-
-** Still to upload: Festival speech synthesis projects **
